@@ -61,6 +61,16 @@ h1 {
 #board span:nth-last-child(-n + 3) {
   border-bottom: none;
 }
+a {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: #333;
+}
 
 @media (hover: hover) {
   #board span {
