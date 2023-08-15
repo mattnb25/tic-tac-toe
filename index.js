@@ -6,7 +6,12 @@ const boardModule = (() => {
     board.forEach((row, rowIndex) => {
       row.forEach((cell, colIndex) => {
         const span = document.createElement("span");
+        span.setAttribute("role", "button");
+        span.setAttribute("tabindex", "0");
         displayBoard.appendChild(span);
+        span.addEventListener("keypress", (event) => {
+          if (event.key === "Enter") span.click();
+        });
         span.addEventListener("click", () => {
           if (board[rowIndex][colIndex] !== "") {
             return;
