@@ -1,0 +1,66 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair:opsz@5..1200&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Playfair";
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  color: #333;
+  background-color: #efefef;
+  max-width: 50rem;
+  margin: auto;
+}
+h1 {
+  padding-top: 2rem;
+  font-size: 1.8rem;
+  font-weight: 400;
+  text-align: center;
+}
+
+#button {
+  margin: 2rem;
+  padding: 0.5rem;
+  width: calc(100% - 4rem);
+  font-size: 2.8rem;
+  text-align: center;
+  color: #333;
+  border: 1px solid #333;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  box-shadow: 0 0 1rem #3333;
+}
+#board {
+  margin: 0 auto;
+  padding: 2rem;
+  display: grid;
+  grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+  height: 100vw;
+  max-height: min(70vh, 50rem);
+  max-width: min(70vh, 50rem);
+}
+#board span {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  border-right: 0.1rem solid #333;
+  border-bottom: 0.1rem solid #333;
+  font-size: clamp(3.2rem, 3vw, 5.4rem);
+  transition: background-color 500ms;
+}
+
+#board span:hover {
+  background-color: #3333;
+  cursor: pointer;
+}
+
+#board span:nth-child(3n) {
+  border-right: none;
+}
+#board span:nth-last-child(-n + 3) {
+  border-bottom: none;
+}
