@@ -50,17 +50,24 @@ h1 {
   border-right: 0.1rem solid #333;
   border-bottom: 0.1rem solid #333;
   font-size: clamp(3.2rem, 3vw, 5.4rem);
-  transition: background-color 500ms;
+  transition: background-color 100ms;
 }
-
-#board span:hover {
+#board span:active {
   background-color: #3333;
-  cursor: pointer;
 }
-
 #board span:nth-child(3n) {
   border-right: none;
 }
 #board span:nth-last-child(-n + 3) {
   border-bottom: none;
+}
+
+@media (hover: hover) {
+  #board span {
+    transition: background-color 500ms;
+  }
+  #board span:hover {
+    background-color: #3333;
+    cursor: pointer;
+  }
 }
