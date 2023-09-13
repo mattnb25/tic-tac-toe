@@ -40,6 +40,7 @@ const boardModule = (() => {
     button.addEventListener("click", resetBoard.bind(null, board, player));
     button.style.pointerEvents = "auto";
     player = player === "X" ? "O" : "X";
+    displayBoard.style.opacity = "0.5";
     displayBoard.style.pointerEvents = "none";
   }
 
@@ -50,6 +51,7 @@ const boardModule = (() => {
 
     board.forEach((row) => row.fill(""));
     displayBoard.innerHTML = "";
+    displayBoard.style.opacity = "initial";
     displayBoard.style.pointerEvents = "auto";
     setupBoard(board, player);
   }
