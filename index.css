@@ -43,15 +43,14 @@ h1 {
   cursor: pointer;
 }
 
+
 #board {
   margin: auto;
-
   display: grid;
   grid-template: repeat(3, 1fr) / repeat(3, 1fr);
 
-  aspect-ratio: 1/1;
-  max-width: 100%;
-  height: 100%;
+  height: min(50dvh, 80dvw);
+  width: min(50dvh, 80dvw);
 }
 
 #board span {
