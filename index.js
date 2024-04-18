@@ -5,13 +5,16 @@ const boardModule = (() => {
   function setupBoard(board, player) {
     board.forEach((row, rowIndex) => {
       row.forEach((cell, colIndex) => {
+
         const span = document.createElement("span");
         span.setAttribute("role", "button");
         span.setAttribute("tabindex", "0");
         displayBoard.appendChild(span);
+
         span.addEventListener("keypress", (event) => {
-          if (event.key === "Enter") span.click();
+          if (event.key === "Enter" || "Space") span.click();
         });
+
         span.addEventListener("click", () => {
           if (board[rowIndex][colIndex] !== "") {
             return;
@@ -39,20 +42,25 @@ const boardModule = (() => {
   function resetRound(board, player) {
     button.addEventListener("click", resetBoard.bind(null, board, player));
     button.style.pointerEvents = "auto";
+    button.style.boxShadow = "0 0 1rem #3333";
+
     player = player === "X" ? "O" : "X";
-    displayBoard.style.opacity = "0.5";
+
     displayBoard.style.pointerEvents = "none";
+    displayBoard.style.opacity = "0.5";
   }
 
   function resetBoard(board, player) {
     button.removeEventListener("click", resetBoard.bind(null, board, player));
     button.style.pointerEvents = "none";
+    button.style.boxShadow = "none";
     button.textContent = player + "'s turn";
 
-    board.forEach((row) => row.fill(""));
     displayBoard.innerHTML = "";
     displayBoard.style.opacity = "initial";
     displayBoard.style.pointerEvents = "auto";
+
+    board.forEach((row) => row.fill(""));
     setupBoard(board, player);
   }
 
@@ -84,6 +92,7 @@ const gameModule = (() => {
 
     // Check diagonals for a win
     if (
+      // .every() conveniently increases the index at the same time as the row, resulting in an X shape check
       board.every((row, index) => row[index] === player) ||
       board.every((row, index) => row[board.length - 1 - index] === player)
     ) {
