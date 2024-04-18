@@ -23,7 +23,7 @@ body {
 
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 2rem;
 }
 
 h1 {
@@ -33,7 +33,7 @@ h1 {
 }
 
 #button {
-  padding: 1rem;
+  padding: 0.5rem;
   font-size: 3.2rem;
 
   border: 1px solid #333;
